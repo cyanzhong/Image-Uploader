@@ -2,6 +2,14 @@
 
 The all-in-one image uploader for [Taio](https://taio.app) and [JSBox](https://docs.xteko.com/#/en/).
 
+<img src="https://github.com/cyanzhong/Image-Uploader/raw/main/screenshots/IMG_1.PNG" width="360" alt="Pick Images"/>
+
+<img src="https://github.com/cyanzhong/Image-Uploader/raw/main/screenshots/IMG_2.PNG" width="360" alt="Bulk Editing"/>
+
+<img src="https://github.com/cyanzhong/Image-Uploader/raw/main/screenshots/IMG_3.PNG" width="360" alt="Upload Local Images"/>
+
+<img src="https://github.com/cyanzhong/Image-Uploader/raw/main/screenshots/IMG_4.PNG" width="360" alt="Rich Cloud Services"/>
+
 ## Features
 
 - [x] Many cloud services are supported

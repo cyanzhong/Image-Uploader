@@ -2,6 +2,14 @@
 
 为 [Taio](https://taio.app/cn/) 和 [JSBox](https://docs.xteko.com) 设计的全功能图片上传工具。
 
+<img src="https://github.com/cyanzhong/Image-Uploader/raw/main/screenshots/IMG_1.PNG" width="360" alt="选择图片"/>
+
+<img src="https://github.com/cyanzhong/Image-Uploader/raw/main/screenshots/IMG_2.PNG" width="360" alt="批量编辑"/>
+
+<img src="https://github.com/cyanzhong/Image-Uploader/raw/main/screenshots/IMG_3.PNG" width="360" alt="上传本地图片"/>
+
+<img src="https://github.com/cyanzhong/Image-Uploader/raw/main/screenshots/IMG_4.PNG" width="360" alt="多种云服务"/>
+
 ## 主要特性
 
 - [x] 支持十几种常见云服务
