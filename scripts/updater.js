@@ -2,7 +2,7 @@ const util = require("./util");
 const strings = require("./ui/constants/strings");
 
 async function check() {
-  const { response, data } = await $http.get("https://raw.githubusercontent.com/cyanzhong/Image-Uploader/main/version.conf");
+  const { response, data } = await $http.get("https://github.com/cyanzhong/Image-Uploader/raw/main/version.conf");
   if (response.statusCode !== 200 || typeof data !== "string") {
     return;
   }
@@ -40,7 +40,7 @@ async function check() {
       const url = encodeURIComponent(strings.taio_update_url);
       $app.openURL(`taio://actions?action=import&url=${url}`);
     } else {
-      const url = encodeURIComponent("https://raw.githubusercontent.com/cyanzhong/Image-Uploader/main/dist/image-uploader.zip");
+      const url = encodeURIComponent("https://github.com/cyanzhong/Image-Uploader/raw/main/dist/image-uploader.zip");
       $app.openURL(`jsbox://import?url=${url}&name=${encodeURIComponent($addin.current.name)}`);
     }
 

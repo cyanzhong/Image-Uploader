@@ -85,7 +85,7 @@
 "UPDATE_TO_NEW_VERSION" = "更新到最新版本？";
 "UPDATE" = "更新";
 "DOCS_URL" = "https://github.com/cyanzhong/Image-Uploader/blob/main/DOCS_CN.md";
-"TAIO_UPDATE_URL" = "https://raw.githubusercontent.com/cyanzhong/Image-Uploader/main/dist/image-uploader-zh-Hans.json";
+"TAIO_UPDATE_URL" = "https://github.com/cyanzhong/Image-Uploader/raw/main/dist/image-uploader-zh-Hans.json";
 "THUMBNAIL_COLUMNS" = "缩略图列数";
 "THUMBNAIL_SIZE" = "缩略图质量";
 "LEARN_MORE" = "了解更多";
