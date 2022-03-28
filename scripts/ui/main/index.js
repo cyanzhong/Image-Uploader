@@ -55,7 +55,19 @@ function render() {
     props: {
       title: "",
       formSheet: true,
-      navButtons: menus.buildMainMenu(states, contextActions)
+      navButtons: menus.buildMainMenu(states, contextActions),
+      keyCommands: [
+        {
+          input: "V", // cmd-v to paste images
+          modifiers: 1 << 20,
+          title: strings.source_clipboard,
+          handler: () => {
+            const { sources } = require("../../picker");
+            const { selectImages } = require("./image-picker");
+            selectImages(sources.clipboard, views, states, contextActions);
+          }
+        }
+      ]
     },
     views: [
       {
