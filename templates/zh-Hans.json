@@ -1,0 +1,53 @@
+{
+  "actions" : [
+    {
+      "type" : "@comment",
+      "parameters" : {
+        "text" : {
+          "value" : "全功能图片上传工具，专为 Taio 设计，完全开源：https://github.com/cyanzhong/Image-Uploader"
+        }
+      }
+    },
+    {
+      "type" : "@editor.filename",
+      "parameters" : {
+        "mode" : 2,
+        "includeExtension" : true
+      }
+    },
+    {
+      "type" : "@flow.set-variable",
+      "parameters" : {
+        "value" : {
+          "value" : "$",
+          "tokens" : [
+            {
+              "location" : 0,
+              "value" : "@input"
+            }
+          ]
+        },
+        "name" : {
+          "value" : "sourceFilePath"
+        }
+      }
+    },
+    {
+      "type" : "@flow.javascript",
+      "parameters" : {
+        "script" : {
+          "value" : ""
+        }
+      }
+    }
+  ],
+  "buildVersion" : 1,
+  "name" : "图片上传",
+  "clientMinVersion" : 1,
+  "summary" : "",
+  "icon" : {
+    "glyph" : "icloud.and.arrow.up",
+    "color" : "#7881FA"
+  },
+  "clientVersion" : 592
+}
