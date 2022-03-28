@@ -28,6 +28,11 @@ const bundler = new Parcel({
 });
 
 function injectContent() {
+  const versionText = (() => {
+    const version = fs.readFileSync(path.join(__dirname, "version.conf"), "utf-8");
+    return `__IMAGE_UPLOADER_VERSION__ = "${version}";`;
+  })();
+
   const stringsFolder = path.join(__dirname, "strings");
   const stringsFiles = fs.readdirSync(stringsFolder);
   const localizedText = {};
@@ -71,19 +76,14 @@ function injectContent() {
     const addFile = name => files[name] = fs.readFileSync(path.join(__dirname, name), "utf-8");
     addFile("README.md");
     addFile("README_CN.md");
-    return `__README__ = ${JSON.stringify(files)}`;
-  })();
-
-  const versionText = (() => {
-    const configInfo = JSON.parse(configFile).info;
-    return `$addin = { current: { version: "${configInfo.version}" } }`;
+    return `__IMAGE_UPLOADER_README__ = ${JSON.stringify(files)}`;
   })();
 
   const contents = [
+    versionText,
     stringsText,
     configText,
     readmeText,
-    versionText,
     entryFileContent
   ]
 
@@ -92,6 +92,7 @@ function injectContent() {
 
 function cleanUp() {
   fs.writeFileSync(entryFilePath, entryFileContent);
+  fs.rmSync(path.join(__dirname, distDir, distEntry));
 }
 
 function buildTextActions() {

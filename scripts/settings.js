@@ -85,8 +85,8 @@ async function open(reloadData) {
                   props: {
                     content: (() => {
                       const fileName = $l10n("README_FILE");
-                      if (typeof __README__ === "object") {
-                        return __README__[fileName];
+                      if (typeof __IMAGE_UPLOADER_README__ === "object") {
+                        return __IMAGE_UPLOADER_README__[fileName];
                       } else {
                         return $file.read(fileName).string;
                       }
