@@ -7,7 +7,7 @@ const clipboard = require("../../tools/clipboard");
 const taptic = require("../../tools/taptic");
 
 function buildMainMenu(states, contextActions) {
-  const { reloadData, toggleBulkEditing, selectAll, deselectAll } = contextActions;
+  const { reloadData, toggleBulkEditing, endBulkEditing, selectAll, deselectAll } = contextActions;
   return [
     {
       title: strings.settings, symbol: symbols.ellipsis, handler: _ => {
@@ -22,7 +22,7 @@ function buildMainMenu(states, contextActions) {
           { title: strings.backup_images, symbol: symbols.upload, handler: () => history.backup() },
           { title: strings.restore_images, symbol: symbols.download, handler: () => history.restore(() => {
               states.data = history.all();
-              reloadData(true);
+              endBulkEditing(true);
               taptic.success();
             })
           }
