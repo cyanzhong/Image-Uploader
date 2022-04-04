@@ -26,13 +26,15 @@ function push(failed) {
           })
         },
         layout: $layout.fill,
-        events: { didSelect }
+        events: {
+          didSelect: (_, indexPath) => didSelect(failed, indexPath)
+        }
       }
     ]
   });
 }
 
-function didSelect(sender, indexPath) {
+function didSelect(failed, indexPath) {
   const error = failed[indexPath.row].error;
   $ui.alert({
     title: strings.upload_errors,
