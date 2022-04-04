@@ -103,6 +103,21 @@ async function open(reloadData) {
             "value": "https://github.com/cyanzhong/Image-Uploader"
           }
         ]
+      },
+      {
+        "items": [
+          {
+            "title": strings.get_latest_version,
+            "type": "script",
+            "value": (() => {
+              if (util.onTaio) {
+                return `$app.openURL("${strings.taio_update_url}");`;
+              } else {
+                return `$app.openURL("jsbox://import?url=${encodeURIComponent('https://github.com/cyanzhong/Image-Uploader/raw/main/dist/image-uploader.zip')}&name=${encodeURIComponent($addin.current.name)}");`;
+              }
+            })() + "\n\n$app.close();"
+          }
+        ]
       }
     ]
   });
