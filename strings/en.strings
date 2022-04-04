@@ -85,7 +85,7 @@
 "UPDATE_TO_NEW_VERSION" = "Update to the latest version?";
 "UPDATE" = "Update";
 "DOCS_URL" = "https://github.com/cyanzhong/Image-Uploader/blob/main/DOCS.md";
-"TAIO_UPDATE_URL" = "https://github.com/cyanzhong/Image-Uploader/raw/main/dist/image-uploader-en.json";
+"TAIO_UPDATE_URL" = "https://actions.taio.app/#/utility?id=image-uploader";
 "THUMBNAIL_COLUMNS" = "Thumbnail Columns";
 "THUMBNAIL_SIZE" = "Thumbnail Quality";
 "LEARN_MORE" = "Learn More";

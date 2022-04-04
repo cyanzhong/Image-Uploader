@@ -32,20 +32,14 @@ async function check() {
     return;
   }
 
-  // Only dismiss the view controller,
-  // don't tear down the engine yet
-  const controller = $ui.controller.ocValue();
-  controller.$dismissViewControllerAnimated_completion(true, $block("void, void", () => {
-    if (util.onTaio) {
-      const url = encodeURIComponent(strings.taio_update_url);
-      $app.openURL(`taio://actions?action=import&url=${url}`);
-    } else {
-      const url = encodeURIComponent("https://github.com/cyanzhong/Image-Uploader/raw/main/dist/image-uploader.zip");
-      $app.openURL(`jsbox://import?url=${url}&name=${encodeURIComponent($addin.current.name)}`);
-    }
+  if (util.onTaio) {
+    $app.openURL(strings.taio_update_url);
+  } else {
+    const url = encodeURIComponent("https://github.com/cyanzhong/Image-Uploader/raw/main/dist/image-uploader.zip");
+    $app.openURL(`jsbox://import?url=${url}&name=${encodeURIComponent($addin.current.name)}`);
+  }
 
-    $app.close();
-  }));
+  $app.close();
 }
 
 module.exports = {
