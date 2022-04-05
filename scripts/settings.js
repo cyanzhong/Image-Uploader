@@ -111,7 +111,7 @@ async function open(reloadData) {
             "type": "script",
             "value": (() => {
               if (util.onTaio) {
-                return `$app.openURL("${strings.taio_update_url}");`;
+                return `$app.openURL("taio://actions?action=import&url=${encodeURIComponent(strings.taio_update_url)}");`;
               } else {
                 return `$app.openURL("jsbox://import?url=${encodeURIComponent('https://github.com/cyanzhong/Image-Uploader/raw/main/dist/image-uploader.zip')}&name=${encodeURIComponent($addin.current.name)}");`;
               }

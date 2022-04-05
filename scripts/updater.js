@@ -33,7 +33,8 @@ async function check() {
   }
 
   if (util.onTaio) {
-    $app.openURL(strings.taio_update_url);
+    const url = encodeURIComponent(strings.taio_update_url);
+    $app.openURL(`taio://actions?action=import&url=${url}`);
   } else {
     const url = encodeURIComponent("https://github.com/cyanzhong/Image-Uploader/raw/main/dist/image-uploader.zip");
     $app.openURL(`jsbox://import?url=${url}&name=${encodeURIComponent($addin.current.name)}`);
