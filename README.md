@@ -1,3 +1,5 @@
+[💬 English / 中文](https://github.com/cyanzhong/Image-Uploader/blob/main/README_CN.md)
+
 ## Image Uploader
 
 The all-in-one image uploader for [Taio](https://taio.app) and [JSBox](https://docs.xteko.com/#/en/).

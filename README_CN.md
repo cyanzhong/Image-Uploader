@@ -1,3 +1,5 @@
+[💬 English / 中文](https://github.com/cyanzhong/Image-Uploader)
+
 ## 图片上传
 
 为 [Taio](https://taio.app/cn/) 和 [JSBox](https://docs.xteko.com) 设计的全功能图片上传工具。
