@@ -49,13 +49,18 @@ function mimeType(data) {
 function fileName(data, pattern) {
   const date = new Date();
   const fileName = data.fileName || randomText(6);
+
+  const leftPad = number => {
+    return number >= 10 ? `${number}` : `0${number}`;
+  }
+
   const variables = {
     year: date.getFullYear(),
-    month: date.getMonth() + 1,
-    day: date.getDate(),
-    hour: date.getHours(),
-    minute: date.getMinutes(),
-    second: date.getSeconds(),
+    month: leftPad(date.getMonth() + 1),
+    day: leftPad(date.getDate()),
+    hour: leftPad(date.getHours()),
+    minute: leftPad(date.getMinutes()),
+    second: leftPad(date.getSeconds()),
     timestamp: date.getTime(),
     filename: deleteExtension(fileName),
     suffix: fileName.includes(".") ? fileName.split(".").pop() : lastPath(mimeType(data)), // Either from file name or MIME type
