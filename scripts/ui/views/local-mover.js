@@ -122,8 +122,8 @@ function push(filePath, resolve) {
           textColor: colors.lightGray,
           align: $align.center
         },
-        layout: (make, view) => {
-          make.centerX.equalTo(view.super);
+        layout: make => {
+          make.left.top.right.equalTo(0);
           make.bottom.equalTo(views.toolbar().top);
         }
       }
