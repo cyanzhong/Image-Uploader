@@ -187,8 +187,8 @@ function render() {
           textColor: colors.lightGray,
           align: $align.center
         },
-        layout: make => {
-          make.left.top.right.equalTo(0);
+        layout: (make, view) => {
+          make.centerX.equalTo(view.super);
           make.bottom.equalTo(views.toolbar().top);
         }
       }
