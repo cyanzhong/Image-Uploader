@@ -9,6 +9,6 @@ const configs = require("./scripts/storage/configs");
 configs.cleanUp();
 
 const updater = require("./scripts/updater");
-updater.check();
+updater.checkForUpdate();
 
 $actions.finish();

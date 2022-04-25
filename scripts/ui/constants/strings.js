@@ -89,5 +89,6 @@ module.exports = {
   thumbnail_columns: $l10n("THUMBNAIL_COLUMNS"),
   thumbnail_size: $l10n("THUMBNAIL_SIZE"),
   learn_more: $l10n("LEARN_MORE"),
+  current_version: $l10n("CURRENT_VERSION"),
   get_latest_version: $l10n("GET_LATEST_VERSION"),
 }

@@ -1,21 +1,21 @@
 const util = require("./util");
 const strings = require("./ui/constants/strings");
 
-async function check() {
+function currentVersion() {
+  if (typeof __IMAGE_UPLOADER_VERSION__ === "undefined") {
+    return $file.read("version.conf").string;
+  } else {
+    return __IMAGE_UPLOADER_VERSION__;
+  }
+}
+
+async function checkForUpdate() {
   const { response, data } = await $http.get("https://github.com/cyanzhong/Image-Uploader/raw/main/version.conf");
   if (response.statusCode !== 200 || typeof data !== "string") {
     return;
   }
 
-  const current = (() => {
-    if (typeof __IMAGE_UPLOADER_VERSION__ === "undefined") {
-      return $file.read("version.conf").string;
-    } else {
-      return __IMAGE_UPLOADER_VERSION__;
-    }
-  })();
-
-  if (current === data) {
+  if (data === currentVersion()) {
     return;
   }
 
@@ -44,5 +44,6 @@ async function check() {
 }
 
 module.exports = {
-  check 
+  currentVersion,
+  checkForUpdate
 }

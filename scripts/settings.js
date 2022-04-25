@@ -1,5 +1,6 @@
 const strings = require("./ui/constants/strings");
 const util = require("./util");
+const updater = require("./updater");
 
 const keyPaths = {
   thumbColumns: "app.taio.thumb-columns",
@@ -106,6 +107,11 @@ async function open(reloadData) {
       },
       {
         "items": [
+          {
+            "title": strings.current_version,
+            "type": "info",
+            "value": updater.currentVersion()
+          },
           {
             "title": strings.get_latest_version,
             "type": "script",
