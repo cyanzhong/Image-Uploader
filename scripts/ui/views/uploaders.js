@@ -8,6 +8,10 @@ const configs = require("../../storage/configs");
 const keychain = require("../../storage/keychain");
 const util = require("../../util");
 
+const states = {
+  isEditing: false
+}
+
 const views = {
   main: () => $("uploader-list"),
   empty: () => $("uploader-empty"),
@@ -17,6 +21,14 @@ function buildTipsMenu() {
   return {
     asPrimary: true,
     items: [
+      {
+        title: strings.toggle_editing,
+        symbol: symbols.switch,
+        handler: () => {
+          states.isEditing = !states.isEditing;
+          views.main().setEditing(states.isEditing);
+        }
+      },
       {
         title: strings.tips,
         symbol: symbols.lightbulb,

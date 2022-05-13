@@ -26,4 +26,5 @@ module.exports = {
   more: "ellipsis.circle.fill",
   share: "square.and.arrow.up",
   plus_fill: "plus.circle.fill",
+  switch: "switch.2",
 }

@@ -91,4 +91,5 @@ module.exports = {
   learn_more: $l10n("LEARN_MORE"),
   current_version: $l10n("CURRENT_VERSION"),
   get_latest_version: $l10n("GET_LATEST_VERSION"),
+  toggle_editing: $l10n("TOGGLE_EDITING"),
 }
