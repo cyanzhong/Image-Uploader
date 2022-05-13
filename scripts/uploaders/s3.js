@@ -179,28 +179,36 @@ function config(util) {
 }
 
 function request(file, options, util) {
+  const region = regions[options[keyPaths.region]];
+  return compatible(file, {
+    region,
+    host: buildHost(region, options[keyPaths.bucket]),
+    accessKeyID: options[keyPaths.accessKeyID],
+    secretAccessKey: options[keyPaths.secretAccessKey],
+    acl: true
+  }, util);
+}
+
+function compatible(file, options, util) {
   const { HmacSHA256 } = util.crypto;
   const method = "PUT";
   const serviceName = "s3";
   const filePath = file.path;
   const fileHash = util.encode.sha256(file.data);
 
-  const region = regions[options[keyPaths.region]];
-  const bucket = options[keyPaths.bucket];
-  const host = buildHost(region, bucket);
   const algorithm = "AWS4-HMAC-SHA256";
   const xAmzDate = `${(new Date()).toISOString().substring(0, 19).replaceAll(/[-:]/g, "")}Z`;
   const shortDate = xAmzDate.substring(0, 8);
-  const signedHeaders = "host;x-amz-acl;x-amz-content-sha256;x-amz-date";
+  const signedHeaders = `host;${options.acl ? "x-amz-acl;" : ""}x-amz-content-sha256;x-amz-date`;
   const aws4Name = "aws4_request";
-  const scope = `${shortDate}/${region}/${serviceName}/${aws4Name}`;
+  const scope = `${shortDate}/${options.region}/${serviceName}/${aws4Name}`;
 
   const canonical = [
     method,
     `/${filePath}`,
     "",
-    `host:${host}`,
-    "x-amz-acl:public-read",
+    `host:${options.host}`,
+    ...options.acl ? ["x-amz-acl:public-read"] : [],
     `x-amz-content-sha256:${fileHash}`,
     `x-amz-date:${xAmzDate}`,
     "",
@@ -216,8 +224,8 @@ function request(file, options, util) {
   ].join("\n");
 
   const signingKey = (() => {
-    const kDate = HmacSHA256(shortDate, `AWS4${options[keyPaths.secretAccessKey]}`);
-    const kRegion = HmacSHA256(region, kDate);
+    const kDate = HmacSHA256(shortDate, `AWS4${options.secretAccessKey}`);
+    const kRegion = HmacSHA256(options.region, kDate);
     const kService = HmacSHA256(serviceName, kRegion);
     const kSigning = HmacSHA256(aws4Name, kService);
     return kSigning;
@@ -227,11 +235,11 @@ function request(file, options, util) {
 
   return {
     method,
-    url: `https://${host}/${filePath}`,
+    url: `https://${options.host}/${filePath}`,
     header: {
       "Content-Type": file.type,
-      "Authorization": `${algorithm} Credential=${options[keyPaths.accessKeyID]}/${scope},SignedHeaders=${signedHeaders},Signature=${signature}`,
-      "x-amz-acl": "public-read",
+      "Authorization": `${algorithm} Credential=${options.accessKeyID}/${scope},SignedHeaders=${signedHeaders},Signature=${signature}`,
+      ...options.acl ? {"x-amz-acl": "public-read"} : {},
       "x-amz-content-sha256": fileHash,
       "x-amz-date": xAmzDate
     },
@@ -281,5 +289,6 @@ module.exports = {
   onlineDoc,
   config,
   request,
+  compatible,
   parse
 }
