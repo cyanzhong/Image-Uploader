@@ -12,6 +12,10 @@ The all-in-one image uploader for [Taio](https://taio.app) and [JSBox](https://d
 
 <img src="https://github.com/cyanzhong/Image-Uploader/raw/main/screenshots/IMG_4.PNG" width="360" alt="Rich Cloud Services"/>
 
+## Installation
+
+For Taio, check [here](https://actions.taio.app/#/utility?id=image-uploader).
+
 ## Features
 
 - [x] Many cloud services are supported

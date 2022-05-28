@@ -12,6 +12,10 @@
 
 <img src="https://github.com/cyanzhong/Image-Uploader/raw/main/screenshots/IMG_4.PNG" width="360" alt="多种云服务"/>
 
+## 安装
+
+对于 Taio，请查看[这里](https://actions.taio.app/#/cn/utility?id=%e5%9b%be%e7%89%87%e4%b8%8a%e4%bc%a0)。
+
 ## 主要特性
 
 - [x] 支持十几种常见云服务
