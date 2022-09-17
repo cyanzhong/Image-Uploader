@@ -3,6 +3,7 @@ module.exports = {
   s3: require("./s3"),
   azure: require("./azure"),
   b2: require("./b2"),
+  r2: require("./r2"),
   imgur: require("./imgur"),
   github: require("./github"),
   gitlab: require("./gitlab"),
